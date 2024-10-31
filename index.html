@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Simples</title>
+    <script>
+        function mostrarConteudo() {
+            // Gerar número aleatório entre 100 e 1028
+            const num = Math.floor(Math.random() * (1028 - 100 + 1)) + 100;
+            
+            // Selecionar frase aleatória
+            const frases = ["Mamão com açúcar!", "Essa foi rápida, hein?", "Resposta correta!"];
+            const frase = frases[Math.floor(Math.random() * frases.length)];
+
+            // Mostrar conteúdo após 4 segundos
+            setTimeout(() => {
+                document.getElementById("conteudo").style.display = "block";
+                document.getElementById("frase").textContent = frase;
+                document.getElementById("pontos").textContent = num;
+            }, 4000);
+        }
+    </script>
+</head>
+<body onload="mostrarConteudo()">
+    <!-- Conteúdo invisível inicial -->
+    <div id="conteudo" style="display: none;">
+        <p>Erro: Seu computador não consegue renderizar a página corretamente por enquanto! (Atualize seu navegador)</p>
+        <br><br>
+        <p><span id="frase"></span> +<span id="pontos"></span> Pontos.</p>
+        <button onclick="location.reload()">Continuar</button>
+    </div>
+</body>
+</html>
